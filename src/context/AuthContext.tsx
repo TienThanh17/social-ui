@@ -3,7 +3,7 @@ import { createContext, useContext, useEffect, useState } from "react";
 import { getCurrentUser } from "@/lib/appwrite/api";
 import { IUser } from "@/types";
 
-const INITIAL_USER: IUser = {
+export const INITIAL_USER: IUser = {
   id: "",
   name: "",
   username: "",
@@ -72,12 +72,9 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
       cookieFallback === undefined
     ) {
       navigate("/sign-in");
-    } else {
-      checkAuthUser();
     }
-
+    checkAuthUser();
   }, []);
-
 
   const value = {
     user,
