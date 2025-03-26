@@ -24,10 +24,10 @@ import { useUserContext } from "@/context/AuthContext";
 const SignUpForm = () => {
   const { mutateAsync: createUserAccount, isPending: isCreatingAccount } =
     useCreateUserAccount();
-  const { mutateAsync: signInAccount, isPending: isSigningin } =
+  const { mutateAsync: signInAccount } =
     useSignInAccount();
 
-  const { checkAuthUser, isLoading: isUserLoading } = useUserContext();
+  const { checkAuthUser } = useUserContext();
   const navigate = useNavigate();
 
   // 1. Define your form.
