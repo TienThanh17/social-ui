@@ -52,12 +52,13 @@ const AuthProvider = ({ children }: { children: React.ReactNode }) => {
           bio: currentAccount.bio,
         });
         setIsAuthenticated(true);
-
         return true;
       }
+      navigate("/sign-in");
       return false;
     } catch (error) {
       console.log(error);
+      navigate("/sign-in");
       return false;
     } finally {
       setIsLoading(false);
