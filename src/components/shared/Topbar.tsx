@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Button } from "../ui/button";
 import { useSignOutAccount } from "@/lib/react-query/queriesAndMutations";
 import { useUserContext } from "@/context/AuthContext";
+import { ModeToggle } from "./ModeToggle";
 
 const Topbar = () => {
   const { mutate: signOut, isSuccess: isSignOutSuccess } = useSignOutAccount();
@@ -33,6 +34,7 @@ const Topbar = () => {
           >
             <img src="/assets/icons/logout.svg" alt="logout" />
           </Button>
+          <ModeToggle />
           <Link to={`/profile/${user.id}`} className="flex-center gap-3">
             <img
               src={user.imageUrl || "/assets/images/profile.png"}

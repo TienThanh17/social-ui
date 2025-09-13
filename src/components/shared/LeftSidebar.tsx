@@ -4,6 +4,7 @@ import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { INavLink } from "@/types";
 import { Button } from "../ui/button";
 import { useSignOutAccount } from "@/lib/react-query/queriesAndMutations";
+import { ModeToggle } from "./ModeToggle";
 
 const LeftSidebar = () => {
   const navigate = useNavigate();
@@ -41,7 +42,9 @@ const LeftSidebar = () => {
           />
           <div className="flex flex-col">
             <p className="body-bold">{user.name}</p>
-            <p className="small-regular text-light-3">@{user.username}</p>
+            <p className="small-regular text-dark-3 dark:text-light-3">
+              @{user.username}
+            </p>
           </div>
         </Link>
 
@@ -58,21 +61,21 @@ const LeftSidebar = () => {
               >
                 <NavLink
                   to={link.route}
-                  className="flex gap-4 items-center p-4"
+                  className={`flex gap-4 items-center p-4 group-hover:invert-white ${
+                    isActive && "invert-white"
+                  }`}
                 >
-                  <img
-                    src={link.imgURL}
-                    alt={link.label}
-                    className={`group-hover:invert-white ${
-                      isActive && "invert-white"
-                    }`}
-                  />
+                  <img src={link.imgURL} alt={link.label} />
                   {link.label}
                 </NavLink>
               </li>
             );
           })}
         </ul>
+      </div>
+
+      <div className="ml-4">
+        <ModeToggle />
       </div>
 
       <Button

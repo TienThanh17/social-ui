@@ -48,7 +48,7 @@ const SignInForm = () => {
       form.reset();
       navigate("/");
     } else {
-      return toast.error("Sign in failed, please try again");
+      return toast.error("Sign in failed, please try again !");
     }
   }
 
@@ -102,7 +102,7 @@ const SignInForm = () => {
             )}
           </Button>
 
-          <p className="text-small-regular text-light-1 text-center mt-2">
+          <p className="text-small-regular text-dark-1 dark:text-light-1 text-center mt-2">
             Don't have an account?
             <Link
               to="/sign-up"

@@ -15,7 +15,7 @@ type PostStatsProps = {
 
 const PostStats = ({ post, userId }: PostStatsProps) => {
   const [likes, setLikes] = useState<string[]>(() => {
-    return post.likes.map((user: Models.Document) => user.$id);
+    return post?.likes?.map((user: Models.Document) => user.$id);
   });
   const [isSaved, setIsSaved] = useState(false);
   const { mutate: likePost } = useLikePost();
